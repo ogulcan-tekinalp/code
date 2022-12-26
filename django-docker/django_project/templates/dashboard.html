@@ -1,0 +1,51 @@
+<!-- templates/dashboard.html/ -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="column">
+    {% for followed in user.profile.follows.all %}
+        {% for post in followed.user.posts.all %}
+            <div class="box">
+                {{ post.body }} | {{post.link}}
+                <span class="is-small has-text-grey-light">
+                    (  {{ post.created_at }} by {{ post.user.username }}
+                </span>
+            </div>
+        {% endfor %}
+    {% endfor %}
+</div>
+
+<div class="block">
+    <div class="block">
+        <h2 class="title is-2">Add a Later</p>
+    </div>
+    <div class="block"><form method="post">
+        {% csrf_token %}
+    {{ form.as_p }}
+    <button class="button is-success is-fullwidth is-medium mt-5"
+                type="submit">Later!
+        </button>
+    </form>
+</div>
+
+
+<div class="block">
+    <a href="{% url 'profile_list' %} ">
+        <button class="button is-dark is-outlined is-fullwidth">
+            All Profiles
+        </button>
+    </a>
+</div>
+<div class="block">
+    <a href="{% url 'profile' request.user.profile.id %} ">
+        <button class="button is-success is-light is-outlined is-fullwidth">
+            My Profile
+        </button>
+    </a>
+</div>
+
+
+
+{% endblock content %}
