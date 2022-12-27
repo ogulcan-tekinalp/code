@@ -12,7 +12,7 @@ WORKDIR /code
 EXPOSE 8000
 
 # Install dependencies
-COPY ./django-docker/django_project/requirements.txt .
+COPY .requirements.txt .
 RUN pip install -r requirements.txt
 
 # Copy project
