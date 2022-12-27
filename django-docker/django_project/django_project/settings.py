@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-fc*b193gp)=_wix*-y35-&6ml2ox_8(m%3alm&r2$!1%et^m_t
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["0.0.0.0"]
+ALLOWED_HOSTS = ["0.0.0.0","63.32.53.134"]
 
 
 # Application definition
